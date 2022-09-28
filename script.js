@@ -37,22 +37,21 @@ const playRound = (playerSelection, computerSelection) => {
     }
 }
 
-const playerSelection = 'Rock';
-
 const game = () => {
     for (let i = 0; i < 5; i++) {
+        const playerSelection = prompt('Choose your Hand', 'Rock Paper Scissors').toLowerCase()
         const computerSelection = computerPlay()
-        (playRound(playerSelection, computerSelection));
+        playRound(playerSelection, computerSelection);
     }
 
     if (playerScore > comScore) {
-        return 'Congragulations, You\'ve won!'
+        return 'Congragulations, Youve won!'
     } else if (playerScore < comScore) {
-        'You\'ve lost, Bummer'
+        'Youve lost, Bummer'
     } else {
         return 'Wow, you guys ended in a tie.'
     }
 }
 
 
-console.log(game);
+console.log(game());
