@@ -1,49 +1,94 @@
+//Variables
 let playerScore = 0
 let comScore = 0
+
 const fireBtn = document.querySelector('.fire');
 const grassBtn = document.querySelector('.grass');
 const waterBtn = document.querySelector('.water');
 const outcome = document.querySelector('.outcome');
 
-grassBtn.addEventListener('click');
-waterBtn.addEventListener('click');
-
+//Function to select a value at random
 const computerPlay = () => {
     const arrOfChoices = ['Fire', 'Grass', 'Water']
     const randomNum = Math.floor(Math.random() * 3)
     console.log(arrOfChoices[randomNum])
-    const comChoice = arrOfChoices[randomNum]
-    return comChoice
+    return arrOfChoices[randomNum] 
 } 
 
+// Main Game Function
 const playRound = (playerSelection, computerSelection) => {
     if (playerSelection === computerSelection) {
-        return `You both chose ${playerSelection}`
+        const p = document.createElement('p');
+        p.innerText = `You both chose ${playerSelection}`;
+        outcome.appendChild(p);
     } else if (playerSelection === 'Fire' && computerSelection === 'Water') {
         comScore++
-        return 'You lost! Fire was extinguished by Water'
+        const p = document.createElement('p');
+        p.innerText = 'You lost! Fire was extinguished by Water';
+        outcome.appendChild(p);
     } else if (playerSelection === 'Fire' && computerSelection === 'Grass') {
         playerScore++
-        return 'You won! Fire burned Grass'
+        const p = document.createElement('p');
+        p.innerText = 'You won! Fire burned Grass';
+        outcome.appendChild(p);
     } else if (playerSelection === 'Grass' && computerSelection === 'Fire') {
         comScore++
-        return 'You lost! Grass was burned by Fire'
+        const p = document.createElement('p');
+        p.innerText = 'You lost! Grass was burned by Fire';
+        outcome.appendChild(p);
     } else if (playerSelection === 'Grass' && computerSelection === 'Water') {
         playerScore++
-        return 'You won! Grass absorbed all the Water'
+        const p = document.createElement('p');
+        p.innerText = 'You won! Grass absorbed all the Water';
+        outcome.appendChild(p);
     } else if (playerSelection === 'Water' && computerSelection === 'Grass') {
         comScore++
-        return 'You lost! Water was absorbed by Grass'
+        const p = document.createElement('p');
+        p.innerText = 'You lost! Water was absorbed by Grass';
+        outcome.appendChild(p);
     } else if (playerSelection === 'Water' && computerSelection === 'Fire') {
         playerScore++
-        return 'You won! Water extinguished the Fire'
+        const p = document.createElement('p');
+        p.innerText = 'You won! Water extinguished the Fire';
+        outcome.appendChild(p);
     }
 }
 
+//Function for checking score
+const checkForWinner = (playerScore, comScore) => {
+    if (playerScore === 5) {
+        const h2 = document.createElement('h2')
+        h2.classList.add('player-won')
+        h2.innerText = 'You won, Master of the Elements'
+        outcome.appendChild(h2)
+    } else if (comScore === 5) {
+        const h2 = document.createElement('h2')
+        h2.classList.add('com-won')
+        h2.innerText = 'You lost, need more training.'
+        outcome.appendChild(h2)
+    }
+}
+
+//Event Listener
 fireBtn.addEventListener('click', () => {
     const computerSelection = computerPlay();
     const playerScore = 'fire';
     playRound(playerScore, computerSelection);
+    checkForWinner(playerScore, comScore);
+});
+
+grassBtn.addEventListener('click', () => {
+    const computerSelection = computerPlay();
+    const playerScore = 'grass';
+    playRound(playerScore, computerSelection);
+    checkForWinner(playerScore, comScore);
+});
+
+waterBtn.addEventListener('click', () => {
+    const computerSelection = computerPlay();
+    const playerScore = 'water';
+    playRound(playerScore, computerSelection);
+    checkForWinner(playerScore, comScore);
 });
 
 //const game = () => {
