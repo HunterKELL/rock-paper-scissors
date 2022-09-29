@@ -1,5 +1,12 @@
 let playerScore = 0
 let comScore = 0
+const fireBtn = document.querySelector('.fire');
+const grassBtn = document.querySelector('.grass');
+const waterBtn = document.querySelector('.water');
+const outcome = document.querySelector('.outcome');
+
+grassBtn.addEventListener('click');
+waterBtn.addEventListener('click');
 
 const computerPlay = () => {
     const arrOfChoices = ['Fire', 'Grass', 'Water']
@@ -10,12 +17,8 @@ const computerPlay = () => {
 } 
 
 const playRound = (playerSelection, computerSelection) => {
-    if (playerSelection === 'Fire' && computerSelection === 'Fire') {
-        return 'You both chose Fire!'
-    } else if (playerSelection === 'Grass' && computerSelection === 'Grass') {
-        return 'You both chose Grass!'
-    } else if (playerSelection === 'Water' && computerSelection === 'Water') {
-        return 'You both chose Water!'
+    if (playerSelection === computerSelection) {
+        return `You both chose ${playerSelection}`
     } else if (playerSelection === 'Fire' && computerSelection === 'Water') {
         comScore++
         return 'You lost! Fire was extinguished by Water'
@@ -37,21 +40,27 @@ const playRound = (playerSelection, computerSelection) => {
     }
 }
 
-const game = () => {
+fireBtn.addEventListener('click', () => {
+    const computerSelection = computerPlay();
+    const playerScore = 'fire';
+    playRound(playerScore, computerSelection);
+});
+
+//const game = () => {
     //for (let i = 0; i < 5; i++) {
     //    const playerSelection = prompt('Choose your Hand', 'Rock Paper Scissors').toLowerCase()
     //    const computerSelection = computerPlay()
     //    playRound(playerSelection, computerSelection);
     //}
 
-    if (playerScore > comScore) {
-        return 'Congragulations, Youve won!'
-    } else if (playerScore < comScore) {
-        'Youve lost, Bummer'
-    } else {
-        return 'Wow, you guys ended in a tie.'
-    }
-}
+//    if (playerScore > comScore) {
+//        return 'Congragulations, Youve won!'
+//    } else if (playerScore < comScore) {
+//       'Youve lost, Bummer'
+//    } else {
+//        return 'Wow, you guys ended in a tie.'
+//    }
+//}
 
 
-console.log(game());
+//console.log(game());
