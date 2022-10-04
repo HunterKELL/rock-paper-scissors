@@ -1,0 +1,104 @@
+/* Variables */
+:root {
+    --bg-gradient: linear-gradient(122deg, rgba(242,116,37,1) 15%, rgba(37,158,15,1) 47%, rgba(17,110,173,1) 82%);
+    --font-color1: #f24025;
+    --font1: Papyrus, sans-serif;
+    --font2: Arial, sans-serif;
+}
+
+/* Page CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background: var(--bg-gradient);
+    background-repeat: no-repeat;
+}
+
+/* Title Container */
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-family: var(--font1);
+    font-size: 65px;
+    margin: 2.5rem;
+}
+
+.sub-title {
+    font-family: var(--font1);
+    font-size: 45px;
+    margin: 1rem;
+}
+
+.details {
+    font-family: var(--font2);
+    font-size: 25px;
+    margin: 1rem;
+}
+
+/* Button Container */
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+#buttons {
+    font-size: 27px;
+    border-radius: 8px;
+    padding: 14px 40px;
+    margin: 1rem;
+    border: none;
+    cursor: pointer;
+}
+
+#buttons:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.fire {
+    background-color: #f24025;
+}
+
+.grass {
+    background-color: rgb(0, 153, 51);
+}
+
+.water {
+    background-color: rgb(51, 133, 255);
+}
+
+/* Results CSS */
+.results {
+    display: flex;
+    justify-content: center;
+}
+
+#player {
+    border: black solid 3px;
+    padding: 14px 40px;
+    background-color: white;
+    justify-items: center;
+    gap: 50px;
+    align-items: center;
+    margin: 2.5rem;
+    font-size: 35px;
+
+}
+.outcome {
+    margin-top: 2.5rem;
+    text-align: center;
+}

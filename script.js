@@ -6,7 +6,9 @@ const fireBtn = document.querySelector('.fire');
 const grassBtn = document.querySelector('.grass');
 const waterBtn = document.querySelector('.water');
 const outcomeDiv = document.querySelector('.outcome');
-console.log(outcomeDiv);
+const playerScoreSpan = document.querySelector('.player-score');
+const comScoreSpan = document.querySelector('.com-score');
+const reset = document.querySelector('.reset');
 
 //Function to select a value at random
 const computerPlay = () => {
@@ -58,23 +60,29 @@ const playRound = (playerSelection, computerSelection) => {
 //Function for checking score
 const checkForWinner = (playerScore, comScore) => {
     if (playerScore === 5) {
-        const h2 = document.createElement('h2')
-        h2.classList.add('player-won')
-        h2.innerText = 'You won, Master of the Elements'
-        outcomeDiv.appendChild(h2)
+        const h1 = document.createElement('h1')
+        h1.classList.add('player-won')
+        h1.innerText = 'You won, master of the elements!'
+        outcomeDiv.appendChild(h1)
     } else if (comScore === 5) {
-        const h2 = document.createElement('h2')
-        h2.classList.add('com-won')
-        h2.innerText = 'You lost, Need more training.'
-        outcomeDiv.appendChild(h2)
+        const h1 = document.createElement('h1')
+        h1.classList.add('com-won')
+        h1.innerText = 'You lost, need more training.'
+        outcomeDiv.appendChild(h1)
     }
 }
+// Game Result Function 
+const scoreResults = (playerScore, comScore) => {
+    playerScoreSpan.innerText = `${playerScore}`
+    comScoreSpan.innerText = `${comScore}`
+}
 
-//Event Listener for buttons
+//Event Listeners for buttons
 fireBtn.addEventListener('click', () => {
     const computerSelection = computerPlay();
     const playerSelection = 'Fire';
     playRound(playerSelection, computerSelection);
+    scoreResults(playerScore, comScore);
     checkForWinner(playerScore, comScore);
 });
 
@@ -82,6 +90,7 @@ grassBtn.addEventListener('click', () => {
     const computerSelection = computerPlay();
     const playerSelection = 'Grass';
     playRound(playerSelection, computerSelection);
+    scoreResults(playerScore, comScore);
     checkForWinner(playerScore, comScore);
 });
 
@@ -89,6 +98,7 @@ waterBtn.addEventListener('click', () => {
     const computerSelection = computerPlay();
     const playerSelection = 'Water';
     playRound(playerSelection, computerSelection);
+    scoreResults(playerScore, comScore);
     checkForWinner(playerScore, comScore);
 });
 

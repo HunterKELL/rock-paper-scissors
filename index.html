@@ -5,16 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--CSS Stylesheet-->
-    <link rel="stylesheet" src="/styles.css">
+    <link rel="stylesheet" href="/styles.css">
     <!--Website Scripts-->
     <script src="/script.js" defer></script>
-    <title>Rock Paper Scissors</title>
+    <title>Fire Grass Water</title>
 </head>
 <body>
+    <div class="flex-container">
+        <h1 class="title">Fire | Grass | Water</h1>
+        <h3 class="sub-title">Choose your Element</h3>
+        <p class="details">First contestant to eliminate the other wins!</p>
+    </div>
     <div class="container">
-        <button class="fire">Fire</button>
-        <button class="grass">Grass</button>
-        <button class="water">Water</button>
+        <button id="buttons" class="fire">Fire</button>
+        <button id="buttons" class="grass">Grass</button>
+        <button id="buttons" class="water">Water</button>
+    </div>
+    <div class="reset"></div>
+    <div class="results">
+        <div id="player">You:
+            <span class="player-score">0</span>
+        </div>
+        <div id="player">Opponent:
+            <span class="com-score">0</span>
+        </div>
     </div>
     <div class="outcome">
 
