@@ -96,6 +96,11 @@ body {
     margin: 1rem;
     border: none;
     cursor: pointer;
+    background-color: grey;
+}
+
+.restart-btn:hover {
+    background-color: aquamarine;
 }
 
 /* Results CSS */
