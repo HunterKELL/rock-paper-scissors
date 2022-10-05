@@ -8,7 +8,8 @@ const waterBtn = document.querySelector('.water');
 const outcomeDiv = document.querySelector('.outcome');
 const playerScoreSpan = document.querySelector('.player-score');
 const comScoreSpan = document.querySelector('.com-score');
-const reset = document.querySelector('.reset');
+const reset = document.querySelector('.restart-btn');
+const elementButtons = document.querySelectorAll('#buttons')
 
 //Function to select a value at random
 const computerPlay = () => {
@@ -69,6 +70,9 @@ const checkForWinner = (playerScore, comScore) => {
         h1.classList.add('com-won')
         h1.innerText = 'You lost, need more training.'
         outcomeDiv.appendChild(h1)
+        elementButtons.forEach((button) => {
+            button.setAttribute('disabled', ' ');
+        })
     }
 }
 // Game Result Function 
@@ -102,6 +106,16 @@ waterBtn.addEventListener('click', () => {
     checkForWinner(playerScore, comScore);
 });
 
+//Function for disabling element buttons
+const gameEnd = (playerScore, comScore) => {
+    if (playerScore === 5 || comScore === 5) {
+        elementButtons.forEach((button) => {
+            button.setAttribute('disabled', ' ');
+        });
+    //} else if (playerScore === 5 || comScore === 5) {
+    //    reset.get
+    }
+}
 //const game = () => {
     //for (let i = 0; i < 5; i++) {
     //    const playerSelection = prompt('Choose your Hand', 'Rock Paper Scissors').toLowerCase()

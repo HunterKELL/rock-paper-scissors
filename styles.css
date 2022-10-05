@@ -54,6 +54,7 @@ body {
 .container {
     display: flex;
     justify-content: center;
+    gap: 2rem;
 }
 
 #buttons {
@@ -79,6 +80,22 @@ body {
 
 .water {
     background-color: rgb(51, 133, 255);
+}
+
+/* Reset Button */
+.reset-container {
+    display: flex;
+    justify-content: center;
+}
+
+.restart-btn {
+    display: none;
+    font-size: 27px;
+    border-radius: 8px;
+    padding: 14px 40px;
+    margin: 1rem;
+    border: none;
+    cursor: pointer;
 }
 
 /* Results CSS */
