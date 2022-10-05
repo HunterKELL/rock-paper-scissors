@@ -8,7 +8,7 @@ const waterBtn = document.querySelector('.water');
 const outcomeDiv = document.querySelector('.outcome');
 const playerScoreSpan = document.querySelector('.player-score');
 const comScoreSpan = document.querySelector('.com-score');
-const reset = document.querySelector('.restart-btn');
+const resetButton = document.querySelector('.restart-btn');
 const elementButtons = document.querySelectorAll('#buttons')
 
 //Function to select a value at random
@@ -65,6 +65,10 @@ const checkForWinner = (playerScore, comScore) => {
         h1.classList.add('player-won')
         h1.innerText = 'You won, master of the elements!'
         outcomeDiv.appendChild(h1)
+        elementButtons.forEach((button) => {
+            button.setAttribute('disabled', ' ');
+        });
+        resetButton.style.display = 'inline-block';
     } else if (comScore === 5) {
         const h1 = document.createElement('h1')
         h1.classList.add('com-won')
@@ -72,8 +76,9 @@ const checkForWinner = (playerScore, comScore) => {
         outcomeDiv.appendChild(h1)
         elementButtons.forEach((button) => {
             button.setAttribute('disabled', ' ');
-        })
-    }
+        });
+        resetButton.style.display = 'inline-block';
+    } 
 }
 // Game Result Function 
 const scoreResults = (playerScore, comScore) => {
@@ -106,14 +111,18 @@ waterBtn.addEventListener('click', () => {
     checkForWinner(playerScore, comScore);
 });
 
+resetButton.addEventListener('click', () => {
+    window.location.reload();
+})
+
 //Function for disabling element buttons
-const gameEnd = (playerScore, comScore) => {
+/*const gameEnd = (playerScore, comScore) => {
     if (playerScore === 5 || comScore === 5) {
         elementButtons.forEach((button) => {
             button.setAttribute('disabled', ' ');
         });
-    //} else if (playerScore === 5 || comScore === 5) {
-    //    reset.get
+    } else if (playerScore === 5 || comScore === 5) {
+         
     }
 }
 //const game = () => {
@@ -133,4 +142,4 @@ const gameEnd = (playerScore, comScore) => {
 //}
 
 
-//console.log(game());
+//console.log(game());*/
